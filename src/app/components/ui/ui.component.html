@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col">
+    @if (pokemon()) {
+    <p>{{pokemon()?.name | titlecase}} was caught!</p>
+    <img [src]="pokemon()?.sprites?.front_default"
+         [alt]="pokemon()?.name | titlecase">
+    } @else {
+    <p>You haven't seen any Pokémon yet</p>
+    <p>Click the button to catch a Pokémon</p>
+    }
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button (click)="getRandomPokemon.emit()">
+      @if(pokemon()) {
+      Catch another one
+      } @else {
+      Catch Pokémon
+      }
+    </button>
+  </div>
+</div>
